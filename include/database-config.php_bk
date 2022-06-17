@@ -1,0 +1,26 @@
+<?php
+
+$base_url_config = 'http://192.168.7.13/rajvithi-uat';
+
+$socket_io_url_config = 'http://192.168.7.13:8089';
+
+$env = true; //production = true
+
+$servername_config = '192.168.7.13:3306';
+$username_config = 'root';
+$password_config = 'P@ssw0rd1168';
+$dbname_config = 'bloodbank_uat';
+
+$jasper_server_config = 'http://192.168.7.13:8080/jasperserver';
+$jasper_server_config_path = '/reports/rajvithi_uat/';
+$jasper_username_config = 'jasperadmin';
+$jasper_password_config = 'jasperadmin';
+
+$gate_rfid_config = 'http://192.168.7.14:60001/Gate/OpenAutoClose';
+
+$cardreader_config = 'http://localhost:22233/';
+// $cardreader_config = 'http://localhost:8888/card3.json';
+
+////////////////////////////////
+?>
+

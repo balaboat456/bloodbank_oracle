@@ -1,0 +1,418 @@
+.myAlert-top {
+    position: fixed;
+    /* position:absolute; */
+    top: 80px;
+    right: 10px;
+    width: 50%;
+    z-index: 10000;
+}
+
+.myAlert-top-error {
+    position: fixed;
+    /* position:absolute; */
+    top: 80px;
+    right: 10px;
+    width: 50%;
+    z-index: 10000;
+}
+
+.myAlert-top-delete {
+    position: fixed;
+    /* position:absolute; */
+    top: 80px;
+    right: 10px;
+    width: 50%;
+    z-index: 10000;
+}
+
+.myAlert-top-error-delete {
+    position: fixed;
+    /* position:absolute; */
+    top: 80px;
+    right: 10px;
+    width: 50%;
+    z-index: 10000;
+}
+
+.myAlert-top-pofile {
+    position: fixed;
+    /* position:absolute; */
+    top: 80px;
+    right: 10px;
+    width: 50%;
+    z-index: 10000;
+}
+
+.myAlert-top-error-login {
+    position: fixed;
+    /* position:absolute; */
+    top: 80px;
+    right: 10px;
+    width: 50%;
+    z-index: 10000;
+}
+
+.myAlert-bottom {
+    position: fixed;
+    bottom: 5px;
+    left: 2%;
+    width: 96%;
+}
+
+div.fullscreen {
+    position: absolute;
+    width: 100%;
+    height: 960px;
+    top: 0;
+    left: 0;
+    background-color: lightblue;
+}
+
+.alert {
+    display: none;
+}
+
+.save-bottom {
+    margin-left: 40px;
+}
+
+.loader {
+    position: fixed;
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 0.5s linear infinite;
+}
+
+.loadersave {
+    position: fixed;
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+}
+
+.pagination a.active {
+    background-color: #17a2b8;
+    color: white;
+    border: 1px solid #17a2b8;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.tital-card {
+    margin-bottom: 10px;
+    margin-top: -30px;
+    padding-top: 5px;
+    background-color: #ddd;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 260px;
+    overflow: auto;
+}
+
+.custom-scrollbar-invest {
+    position: relative;
+    height: 140px;
+    border: 1px solid #ddd;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}
+
+.sdp-number-center {
+    text-align: center;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+
+/* Webkit browsers like Safari and Chrome */
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.div-save {
+    position: fixed;
+    top: 55px;
+    /* width: 70%; */
+    /* left: 0px; */
+    right: 10px;
+    z-index: 999;
+}
+
+
+/* .blood-invest-modal {
+  z-index: 3000;
+}
+
+.blank-modal{
+  z-index: 2000;
+} */
+
+.color1 {
+    background: #00FFFF !important;
+}
+
+.color2 {
+    background: #FFFF00 !important;
+}
+
+.color3 {
+    background: #6C0 !important;
+}
+
+.color3_green {
+    background: #abf560 !important;
+}
+
+.color4 {
+    background: #C00 !important;
+}
+
+.color4_red {
+    background: #ed4b4b !important;
+}
+
+.color5 {
+    background: #F39 !important;
+}
+
+.color6 {
+    background: #0000FF !important;
+    color: white !important;
+}
+
+.color7 {
+    background: #FF8000 !important;
+}
+
+.color99 {
+    background: #808080 !important;
+}
+
+
+/* Style the tab */
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+
+/* Style the buttons inside the tab */
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+
+/* Change background color of buttons on hover */
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+
+/* Create an active/current tablink class */
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+
+/* Style the tab content */
+
+.tabcontent {
+    display: none;
+    padding: 0px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.tabbody {
+    padding: 0px;
+}
+
+.tabbody-card {
+    border-radius: 0px;
+}
+
+
+/* Style the tab */
+
+.tab_table {
+    overflow: hidden;
+    border: 1px solid #cccccc;
+    background-color: #FFFFCC;
+}
+
+
+/* Style the buttons inside the tab_table */
+
+.tab_table button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+
+/* Change background color of buttons on hover */
+
+.tab_table button:hover {
+    background-color: #ddd;
+}
+
+
+/* Create an active/current tab_tablelink class */
+
+.tab_table button.active {
+    background-color: #CCFFE5;
+}
+
+
+/* Style the tab content */
+
+.tabcontent1 {
+    display: none;
+    padding: 0px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+
+/* Style the tab content */
+
+.tabcontent2 {
+    display: none;
+    padding: 0px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.sweet-alert {
+    border: 1px solid #cccccc;
+}
+
+.label-name {
+    font-weight: bold;
+    color: #dc3545;
+    font-size: medium;
+}
+
+.label-name-black {
+    font-weight: bold;
+    color: #000;
+    font-size: medium;
+}
+
+
+.label-name-bloodgroup {
+    font-weight: bold;
+    color: #dc3545;
+    font-size: xx-large;
+}
+
+.label-name-blod-icon {
+    font-weight: bold;
+    color: #dc3545;
+    font-size: x-large;
+}
+
+.img-profile {
+    border: 2px solid #172529;
+}
+
+.big-checkbox-20 {
+    width: 20px;
+    height: 20px;
+}
+
+.table-Infected-ncb {
+    font-weight: bold;
+    margin-top: 6px;
+    color: #0101ef;
+}
+
+.select2-span {
+    color: white;
+    padding: 2px;
+    background-color: #2196F3;
+}
+
+.select2-span2 {
+    color: white;
+    padding: 2px;
+    background-color: #ff8507;
+}
+
+.select2-span3 {
+    color: red;
+    padding: 2px;
+}
+
+.footer-printer-setting {
+    position: absolute;
+    width: 600px;
+    left: 0px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.input-group-text-0 {
+    border-radius: 0px
+}

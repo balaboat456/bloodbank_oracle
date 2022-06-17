@@ -1,0 +1,52 @@
+[
+    {
+        "name": "mattbit/mysql-compat",
+        "version": "v1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mattbit/mysql-compat.git",
+            "reference": "5476660f36b71f5ee6448cd0a5df43c8e81696b2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mattbit/mysql-compat/zipball/5476660f36b71f5ee6448cd0a5df43c8e81696b2",
+            "reference": "5476660f36b71f5ee6448cd0a5df43c8e81696b2",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pdo": "*",
+            "php": ">=5.6"
+        },
+        "require-dev": {
+            "phpspec/phpspec": "^2.5",
+            "phpunit/phpunit": "^5.3"
+        },
+        "time": "2019-02-25T15:19:00+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Mattbit\\MysqlCompat\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "mattbit",
+                "email": "me@mattbit.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "Backward compatibility for old mysql_* functions with PDO",
+        "homepage": "https://github.com/mattbit/mysql-compat",
+        "keywords": [
+            "PHP7",
+            "mysql",
+            "mysql functions"
+        ]
+    }
+]

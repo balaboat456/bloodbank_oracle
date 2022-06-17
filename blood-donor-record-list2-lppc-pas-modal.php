@@ -1,0 +1,107 @@
+<!-- Modal -->
+<div class="modal fade custom-modal" id="lppcpasModal" tabindex="-1" role="dialog" aria-labelledby="lppcpasModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">บันทึก PC & PAS เป็น LPPC(PAS)</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">1. หมายเลขถุง PC</label>
+
+                        <input type="text" autocomplete="off" class="form-control" value="" id="pc_lppc_pas_1" placeholder="" name="pc_lppc_pas_1" onkeyup="set_bag_number('pc_lppc_pas_1')">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">2. หมายเลขถุง PC</label>
+
+                        <input type="text" autocomplete="off" class="form-control" value="" id="pc_lppc_pas_2" placeholder="" name="pc_lppc_pas_2" onkeyup="set_bag_number('pc_lppc_pas_2')">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">3. หมายเลขถุง PC</label>
+
+                        <input type="text" autocomplete="off" class="form-control" value="" id="pc_lppc_pas_3" placeholder="" name="pc_lppc_pas_3" onkeyup="set_bag_number('pc_lppc_pas_3')">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">4. หมายเลขถุง PC</label>
+
+                        <input type="text" autocomplete="off" class="form-control" value="" id="pc_lppc_pas_4" placeholder="" name="pc_lppc_pas_4" onkeyup="set_bag_number('pc_lppc_pas_4')">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">บริษัทน้ำยา PAS</label>
+
+                        <select id="pas_lppc_companypasid" class="form-control form-control-sm" name="pas_lppc_companypasid">
+                            <option value="0"></option>
+                            <?php
+                            $strSQL = "SELECT * FROM company_pas ORDER BY companypasid";
+                            $objQuery = mysql_query($strSQL);
+                            while ($objResuut = mysql_fetch_array($objQuery)) {
+                            ?>
+                                <option value="<?php echo $objResuut["companypasid"]; ?>">
+                                    <?php echo $objResuut["companypasname"]; ?></option>
+                            <?php } ?>
+                        </select>
+
+
+                    </div>
+                    <a href="#" onclick="showCustomCompany()">
+                        <medium id="emailHelp" class="form-text text-muted">เพิ่มบริษัทน้ำยา</medium>
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label for="inputPassword4">Lot.no.</label>
+
+                        <input type="text" autocomplete="off" class="form-control" value="" id="pas_lppc_lot_no" placeholder="" name="pas_lppc_lot_no">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputPassword4">วันที่น้ำยาหมดอายุ</label>
+
+                        <input type="text" autocomplete="off" class="form-control date1" value="" id="pas_lppc_exp" placeholder="" name="pas_lppc_exp">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label>Volume LPPC PAS</label>
+
+                        <input type="number" autocomplete="off" class="form-control" value="" id="volume_lppc_pas" placeholder="" name="volume_lppc_pas" onkeyup="setVolume_decimal(this)">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="save-bottom">
+                    <div class="form-group text-right m-b-0">
+
+                        <button onclick="setLppcPasModal()" id="btnAddModal" class="btn btn-success" type="button">
+                            <span class="btn-label"><i class="fa fa-plus"></i></span>ตกลง
+                        </button>
+                        <button type="button" onclick="closeLppcPasModal()" class="btn btn-warning m-l-5">
+                            <span class="btn-label"><i class="fa fa-remove"></i></span>ยกเลิก
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function setVolume_decimal(self) {
+        console.log('******');
+        var v = $(self).val();
+        var c = Math.round(v);
+        $(self).val(c);
+        console.log(c);
+    }
+</script>

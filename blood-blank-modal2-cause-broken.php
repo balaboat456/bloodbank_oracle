@@ -1,0 +1,54 @@
+<!-- Modal -->
+<div class="modal fade custom-modal" id="bloodBlankBrokenModal" tabindex="-1" role="" aria-hidden="true" style="width:800px;z-index: 1060 !important;">
+    <div class="modal-dialog modal-sm" role="">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">[<label id="brokenstate"></label>] สาเหตุ</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="inputEmail4">ชื่อสาเหตุ</label>
+                        <input hidden type="text" autocomplete="off" class="form-control" id="bloodbrokenid_modal" name="bloodbrokenid_modal">
+                        <input type="text" autocomplete="off" class="form-control" id="bloodbrokenname_modal" name="bloodbrokenname_modal">
+                    </div>
+                </div>
+                <div class="table-no-scroll" style="height:520px">
+                    <table id="list_table_json_broken" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th style="width:60px">No.</th>
+                                <th>ชื่อสาเหตุ</th>
+                                <th style="width:100px">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div class="save-bottom">
+                    <div class="form-group text-right m-b-0">
+
+                        <button type="button" onclick="newBroken()" class="btn btn-success m-l-5">
+                            <span class="btn-label"><i class="fa fa-plus"></i></span>สร้างใหม่
+                        </button>
+
+                        <button onclick="saveBroken()" class="btn btn-primary" type="button">
+                            <span class="btn-label"><i class="fa fa-save"></i></span>บันทึก
+                        </button>
+
+                        <button onclick="closeCustomBloodBroken()" class="btn btn-warning" type="button">
+                            <span class="btn-label"><i class="fa fa-remove"></i></span>ปิด
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

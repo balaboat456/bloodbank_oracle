@@ -1,0 +1,68 @@
+{   "status": true,
+    "gatetotal": 158,
+    "countArray":89,
+    "gatearray": ["4", "10", "13", "19"],
+    "data": [
+                {
+                    "gateid":4,
+                    "data":[
+                            {
+                                "bloodgroupname": "A",
+                                "bloodgroupsort": "1",
+                                "ldprc": 5,
+                                "ldsdr": 1,
+                                "lprc": 12,
+                                "lprc_o": 0,
+                                "other": 0,
+                                "prc": 8,
+                                "sdr": 0
+                            },
+                            {
+                                "bloodgroupname": "B",
+                                "bloodgroupsort": "2",
+                                "ldprc": 3,
+                                "ldsdr": 2,
+                                "lprc": 14,
+                                "lprc_o": 0,
+                                "other": 0,
+                                "prc": 16,
+                                "sdr": 0
+                            },
+                            {
+                                "bloodgroupname": "O",
+                                "bloodgroupsort": "3",
+                                "ldprc": 3,
+                                "ldsdr": 2,
+                                "lprc": 21,
+                                "lprc_o": 4,
+                                "other": 0,
+                                "prc": 28,
+                                "sdr": 0
+                            },
+                            {
+                                "bloodgroupname": "AB",
+                                "bloodgroupsort": "3",
+                                "ldprc": 0,
+                                "ldsdr": 0,
+                                "lprc": 14,
+                                "lprc_o": 0,
+                                "other": 0,
+                                "prc": 8,
+                                "sdr": 5
+                            },
+                            {
+                                "bloodgroupname": "Other",
+                                "bloodgroupsort": "3",
+                                "ldprc": 0,
+                                "ldsdr": 0,
+                                "lprc": 4,
+                                "lprc_o": 0,
+                                "other": 0,
+                                "prc": 2,
+                                "sdr": 2
+                            }
+                        ]
+                }
+             ]
+    
+}

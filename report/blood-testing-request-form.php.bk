@@ -1,0 +1,214 @@
+<?php
+include('../connection.php');
+include('jasper-connection.php');
+include('../dateNow.php');
+session_start();
+date_default_timezone_set('Asia/Bangkok');
+$bagnumberfrom1 = $_GET['bagnumberfrom1'];
+$bagnumberto1 = $_GET['bagnumberto1'];
+$bagnumberfrom2 = $_GET['bagnumberfrom2'];
+$bagnumberto2 = $_GET['bagnumberto2'];
+$textothers = $_GET['textothers'];
+$isttis1 = $_GET['isttis1'];
+$isttis2 = $_GET['isttis2'];
+$isonly = $_GET['isonly'];
+$isothers = $_GET['isothers'];
+$isclottedblood = $_GET['isclottedblood'];
+$iscpdaacdblood = $_GET['iscpdaacdblood'];
+$isedtablood = $_GET['isedtablood'];
+$isexpress1 = $_GET['isexpress1'];
+$isexpress2 = $_GET['isexpress2'];
+
+$show_not_number = $_GET['show_not_number'];
+
+
+$code = $_GET['code'];
+$code2 = $_GET['code2'];
+
+// Number 1 Start
+$start = intval(str_replace(".","",$bagnumberfrom1));
+$end = intval(str_replace(".","",$bagnumberto1));
+
+$strSQL = "SELECT 	* FROM donate WHERE bag_number BETWEEN '$bagnumberfrom1' AND '$bagnumberto1' ORDER BY bag_number";
+$objQuery = mysql_query($strSQL);
+
+$bagnumber = "";
+while($objResuut = mysql_fetch_array($objQuery))
+{
+	$bagnumber = ",".$bagnumber.$objResuut['bag_number'];
+}
+
+
+$num = $start ;
+$bagnumber2 = "";
+$notbagnumber1 = "";
+$qty1 = 0 ;
+$notqty1 = 0 ;
+while($num <= $end) {
+	
+	if(empty(strpos(str_replace(".","",$bagnumber),strval($num)) ))
+	{
+		$notbagnumber1 = $notbagnumber1.$num."\n";
+		$notqty1++;
+	}else
+	{
+		$qty1++ ;
+		$bagnumber2 = $bagnumber2.$num.",";
+	}
+	
+	$num++ ;
+}
+
+$strbagnumber1 = "";
+$endbagnumber1 = "";
+foreach (explode(",",$bagnumber2) as $key=>$value) {
+	
+	if($key == 0)
+	{
+		$strbagnumber1 = $value ;
+	}
+
+	if(!empty($value))
+	{
+		$endbagnumber1 = $value ;
+	}
+
+}
+
+ 
+$fullbagnumber1 = "";
+if($strbagnumber1 == $endbagnumber1)
+{
+	$fullbagnumber1 = $start ;
+}else
+{
+	$fullbagnumber1 = $start." - ".$end ;
+}
+// Number 1 End
+
+
+// Number 2 Start
+$start2 = intval(str_replace(".","",$bagnumberfrom2));
+$end2 = intval(str_replace(".","",$bagnumberto2));
+
+$strSQL = "SELECT 	* FROM donate WHERE bag_number BETWEEN '$bagnumberfrom2' AND '$bagnumberto2' ORDER BY bag_number";
+$objQuery = mysql_query($strSQL);
+
+$bagnumber_2 = "";
+while($objResuut = mysql_fetch_array($objQuery))
+{
+	
+	$bagnumber_2 = ",".$bagnumber_2.$objResuut['bag_number'];
+}
+
+
+$num2 = $start2 ;
+$bagnumber2_2 = "";
+$notbagnumber2 = "";
+$qty2 = 0 ;
+while($num2 <= $end2) {
+	
+	if(empty(strpos(str_replace(".","",$bagnumber_2),strval($num2)) ))
+	{
+		$notbagnumber2 = $notbagnumber2.$num2."\n";
+		
+	}else
+	{
+		$qty2++ ;
+		$bagnumber2_2 = $bagnumber2_2.$num2.",";
+
+	}
+	
+	$num2++ ;
+}
+
+$strbagnumber2 = "";
+$endbagnumber2 = "";
+foreach (explode(",",$bagnumber2_2) as $key=>$value) {
+	
+	if($key == 0)
+	{
+		$strbagnumber2 = $value ;
+	}
+
+	if(!empty($value))
+	{
+		$endbagnumber2 = $value ;
+	}
+
+}
+
+ 
+$fullbagnumber2 = "";
+if($strbagnumber2 == $endbagnumber2)
+{
+	$fullbagnumber2 = $start2 ;
+}else
+{
+	$fullbagnumber2 = $start2." - ".$end2 ;
+}
+// Number 2 End
+
+if($show_not_number == 1)
+{
+	$notbagnumber1 = "";
+	$notbagnumber2 = "";
+}
+
+$controls = array(
+	"fullbagnumber1" => "$fullbagnumber1",
+	"fullbagnumber2" => "$fullbagnumber2",
+	"notbagnumber1" => "$notbagnumber1",
+	"notbagnumber2" => "$notbagnumber2",
+	"textothers" => "$textothers",
+	"isttis1" => "$isttis1",
+	"isttis2" => "$isttis2",
+	"isonly" => "$isonly",
+	"isothers" => "$isothers",
+	"isclottedblood" => "$isclottedblood",
+	"iscpdaacdblood" => "$iscpdaacdblood",
+	"isedtablood" => "$isedtablood",
+	"isexpress1" => "$isexpress1",
+	"isexpress2" => "$isexpress2",
+	"qty1" => "$qty1",
+	"qty2" => "$qty2",
+	"notqty1" => "$notqty1",
+	"code" => "$code",
+	"code2" => "$code2"
+);
+
+error_log(json_encode($controls));
+
+
+$report = $client->reportService()->runReport($jasper_server_config_path . 'blood_testing_request_form', 'pdf',null,null,$controls);
+ 
+header('Cache-Control: must-revalidate');
+header('Pragma: public');
+header('Content-Description: File Transfer');
+// header('Content-Disposition: attachment; filename=report.pdf');
+header('Content-Transfer-Encoding: binary');
+header('Content-Length: ' . strlen($report));
+header('Content-Type: application/pdf; charset=utf-8;');
+ 
+echo $report; 
+
+
+function numnerPoint($str) {
+   
+	$str = str_split($str);
+    $str2 = '';
+    for ($i = 0; $i < count($str) && $i < 11; $i++) {
+
+        if($i==3 || $i==5 || $i==6 )
+        {
+            $str2 = $str2+".";
+        }
+		$str2 = $str2 . $str[$i];
+		
+    }
+    
+   return $str2;
+
+}
+
+?>

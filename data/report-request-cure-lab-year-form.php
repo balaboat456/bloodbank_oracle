@@ -1,0 +1,292 @@
+<?php
+
+    include('../connection.php');
+
+    $condition = '';
+    $year =$_GET['year'];
+    $data = "";
+
+
+    $sql = "SELECT 'มกราคม $year' AS MO , 
+IFNULL(SUM(CASE WHEN LF.labformid IN (8901,8927,8938) THEN 1 ELSE 0 END),0) AS lab1,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8902,8934)  THEN 1 ELSE 0 END),0) AS lab2,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8903,8935) THEN 1 ELSE 0 END),0) AS lab3,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8936,8909) THEN 1 ELSE 0 END),0) AS lab4,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8920,8918) THEN 1 ELSE 0 END),0) AS lab5,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8905,8929) THEN 1 ELSE 0 END),0) AS lab6,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8921,8916) THEN 1 ELSE 0 END),0) AS lab7,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8911,8919) THEN 1 ELSE 0 END),0) AS lab8,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8907,8931) THEN 1 ELSE 0 END),0) AS lab9,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8930,8906) THEN 1 ELSE 0 END),0) AS lab10,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8932,8910) THEN 1 ELSE 0 END),0) AS lab11,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8937) THEN 1 ELSE 0 END),0) AS lab12,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8913,8926) THEN 1 ELSE 0 END),0) AS lab13,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8933,8912) THEN 1 ELSE 0 END),0) AS lab14,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8928) THEN 1 ELSE 0 END),0) AS lab15
+FROM labform LF
+JOIN lab_check_request_item LCRI  ON LF.labformid = LCRI.labformid
+JOIN lab_check_request LCR ON LCR.labcheckrequestid = LCRI.labcheckrequestid
+WHERE SUBSTRING(LCR.labgetdatetime,1,7)  = '$year-01'
+AND LCRI.labcheckrequestitem_a = 1
+UNION
+SELECT 'กุมภาพันธ์ $year' AS MO , 
+IFNULL(SUM(CASE WHEN LF.labformid IN (8901,8927,8938) THEN 1 ELSE 0 END),0) AS lab1,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8902,8934)  THEN 1 ELSE 0 END),0) AS lab2,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8903,8935) THEN 1 ELSE 0 END),0) AS lab3,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8936,8909) THEN 1 ELSE 0 END),0) AS lab4,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8920,8918) THEN 1 ELSE 0 END),0) AS lab5,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8905,8929) THEN 1 ELSE 0 END),0) AS lab6,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8921,8916) THEN 1 ELSE 0 END),0) AS lab7,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8911,8919) THEN 1 ELSE 0 END),0) AS lab8,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8907,8931) THEN 1 ELSE 0 END),0) AS lab9,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8930,8906) THEN 1 ELSE 0 END),0) AS lab10,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8932,8910) THEN 1 ELSE 0 END),0) AS lab11,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8937) THEN 1 ELSE 0 END),0) AS lab12,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8913,8926) THEN 1 ELSE 0 END),0) AS lab13,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8933,8912) THEN 1 ELSE 0 END),0) AS lab14,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8928) THEN 1 ELSE 0 END),0) AS lab15
+FROM labform LF
+JOIN lab_check_request_item LCRI  ON LF.labformid = LCRI.labformid
+JOIN lab_check_request LCR ON LCR.labcheckrequestid = LCRI.labcheckrequestid
+WHERE SUBSTRING(LCR.labgetdatetime,1,7)  = '$year-02'
+AND LCRI.labcheckrequestitem_a = 1
+UNION
+SELECT 'มีนาคม $year' AS MO , 
+IFNULL(SUM(CASE WHEN LF.labformid IN (8901,8927,8938) THEN 1 ELSE 0 END),0) AS lab1,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8902,8934)  THEN 1 ELSE 0 END),0) AS lab2,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8903,8935) THEN 1 ELSE 0 END),0) AS lab3,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8936,8909) THEN 1 ELSE 0 END),0) AS lab4,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8920,8918) THEN 1 ELSE 0 END),0) AS lab5,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8905,8929) THEN 1 ELSE 0 END),0) AS lab6,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8921,8916) THEN 1 ELSE 0 END),0) AS lab7,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8911,8919) THEN 1 ELSE 0 END),0) AS lab8,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8907,8931) THEN 1 ELSE 0 END),0) AS lab9,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8930,8906) THEN 1 ELSE 0 END),0) AS lab10,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8932,8910) THEN 1 ELSE 0 END),0) AS lab11,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8937) THEN 1 ELSE 0 END),0) AS lab12,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8913,8926) THEN 1 ELSE 0 END),0) AS lab13,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8933,8912) THEN 1 ELSE 0 END),0) AS lab14,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8928) THEN 1 ELSE 0 END),0) AS lab15
+FROM labform LF
+JOIN lab_check_request_item LCRI  ON LF.labformid = LCRI.labformid
+JOIN lab_check_request LCR ON LCR.labcheckrequestid = LCRI.labcheckrequestid
+WHERE SUBSTRING(LCR.labgetdatetime,1,7)  = '$year-03'
+AND LCRI.labcheckrequestitem_a = 1
+UNION
+SELECT 'เมษายน $year' AS MO , 
+IFNULL(SUM(CASE WHEN LF.labformid IN (8901,8927,8938) THEN 1 ELSE 0 END),0) AS lab1,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8902,8934)  THEN 1 ELSE 0 END),0) AS lab2,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8903,8935) THEN 1 ELSE 0 END),0) AS lab3,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8936,8909) THEN 1 ELSE 0 END),0) AS lab4,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8920,8918) THEN 1 ELSE 0 END),0) AS lab5,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8905,8929) THEN 1 ELSE 0 END),0) AS lab6,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8921,8916) THEN 1 ELSE 0 END),0) AS lab7,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8911,8919) THEN 1 ELSE 0 END),0) AS lab8,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8907,8931) THEN 1 ELSE 0 END),0) AS lab9,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8930,8906) THEN 1 ELSE 0 END),0) AS lab10,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8932,8910) THEN 1 ELSE 0 END),0) AS lab11,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8937) THEN 1 ELSE 0 END),0) AS lab12,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8913,8926) THEN 1 ELSE 0 END),0) AS lab13,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8933,8912) THEN 1 ELSE 0 END),0) AS lab14,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8928) THEN 1 ELSE 0 END),0) AS lab15
+FROM labform LF
+JOIN lab_check_request_item LCRI  ON LF.labformid = LCRI.labformid
+JOIN lab_check_request LCR ON LCR.labcheckrequestid = LCRI.labcheckrequestid
+WHERE SUBSTRING(LCR.labgetdatetime,1,7)  = '$year-04'
+AND LCRI.labcheckrequestitem_a = 1
+UNION
+SELECT 'พฤษภาคม $year' AS MO , 
+IFNULL(SUM(CASE WHEN LF.labformid IN (8901,8927,8938) THEN 1 ELSE 0 END),0) AS lab1,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8902,8934)  THEN 1 ELSE 0 END),0) AS lab2,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8903,8935) THEN 1 ELSE 0 END),0) AS lab3,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8936,8909) THEN 1 ELSE 0 END),0) AS lab4,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8920,8918) THEN 1 ELSE 0 END),0) AS lab5,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8905,8929) THEN 1 ELSE 0 END),0) AS lab6,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8921,8916) THEN 1 ELSE 0 END),0) AS lab7,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8911,8919) THEN 1 ELSE 0 END),0) AS lab8,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8907,8931) THEN 1 ELSE 0 END),0) AS lab9,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8930,8906) THEN 1 ELSE 0 END),0) AS lab10,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8932,8910) THEN 1 ELSE 0 END),0) AS lab11,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8937) THEN 1 ELSE 0 END),0) AS lab12,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8913,8926) THEN 1 ELSE 0 END),0) AS lab13,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8933,8912) THEN 1 ELSE 0 END),0) AS lab14,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8928) THEN 1 ELSE 0 END),0) AS lab15
+FROM labform LF
+JOIN lab_check_request_item LCRI  ON LF.labformid = LCRI.labformid
+JOIN lab_check_request LCR ON LCR.labcheckrequestid = LCRI.labcheckrequestid
+WHERE SUBSTRING(LCR.labgetdatetime,1,7)  = '$year-05'
+AND LCRI.labcheckrequestitem_a = 1
+UNION
+SELECT 'มิถุนายน $year' AS MO , 
+IFNULL(SUM(CASE WHEN LF.labformid IN (8901,8927,8938) THEN 1 ELSE 0 END),0) AS lab1,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8902,8934)  THEN 1 ELSE 0 END),0) AS lab2,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8903,8935) THEN 1 ELSE 0 END),0) AS lab3,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8936,8909) THEN 1 ELSE 0 END),0) AS lab4,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8920,8918) THEN 1 ELSE 0 END),0) AS lab5,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8905,8929) THEN 1 ELSE 0 END),0) AS lab6,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8921,8916) THEN 1 ELSE 0 END),0) AS lab7,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8911,8919) THEN 1 ELSE 0 END),0) AS lab8,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8907,8931) THEN 1 ELSE 0 END),0) AS lab9,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8930,8906) THEN 1 ELSE 0 END),0) AS lab10,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8932,8910) THEN 1 ELSE 0 END),0) AS lab11,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8937) THEN 1 ELSE 0 END),0) AS lab12,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8913,8926) THEN 1 ELSE 0 END),0) AS lab13,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8933,8912) THEN 1 ELSE 0 END),0) AS lab14,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8928) THEN 1 ELSE 0 END),0) AS lab15
+FROM labform LF
+JOIN lab_check_request_item LCRI  ON LF.labformid = LCRI.labformid
+JOIN lab_check_request LCR ON LCR.labcheckrequestid = LCRI.labcheckrequestid
+WHERE SUBSTRING(LCR.labgetdatetime,1,7)  = '$year-06'
+AND LCRI.labcheckrequestitem_a = 1
+UNION
+SELECT 'กรกฎาคม $year' AS MO , 
+IFNULL(SUM(CASE WHEN LF.labformid IN (8901,8927,8938) THEN 1 ELSE 0 END),0) AS lab1,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8902,8934)  THEN 1 ELSE 0 END),0) AS lab2,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8903,8935) THEN 1 ELSE 0 END),0) AS lab3,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8936,8909) THEN 1 ELSE 0 END),0) AS lab4,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8920,8918) THEN 1 ELSE 0 END),0) AS lab5,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8905,8929) THEN 1 ELSE 0 END),0) AS lab6,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8921,8916) THEN 1 ELSE 0 END),0) AS lab7,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8911,8919) THEN 1 ELSE 0 END),0) AS lab8,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8907,8931) THEN 1 ELSE 0 END),0) AS lab9,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8930,8906) THEN 1 ELSE 0 END),0) AS lab10,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8932,8910) THEN 1 ELSE 0 END),0) AS lab11,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8937) THEN 1 ELSE 0 END),0) AS lab12,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8913,8926) THEN 1 ELSE 0 END),0) AS lab13,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8933,8912) THEN 1 ELSE 0 END),0) AS lab14,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8928) THEN 1 ELSE 0 END),0) AS lab15
+FROM labform LF
+JOIN lab_check_request_item LCRI  ON LF.labformid = LCRI.labformid
+JOIN lab_check_request LCR ON LCR.labcheckrequestid = LCRI.labcheckrequestid
+WHERE SUBSTRING(LCR.labgetdatetime,1,7)  = '$year-07'
+AND LCRI.labcheckrequestitem_a = 1
+UNION
+SELECT 'สิงหาคม $year' AS MO , 
+IFNULL(SUM(CASE WHEN LF.labformid IN (8901,8927,8938) THEN 1 ELSE 0 END),0) AS lab1,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8902,8934)  THEN 1 ELSE 0 END),0) AS lab2,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8903,8935) THEN 1 ELSE 0 END),0) AS lab3,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8936,8909) THEN 1 ELSE 0 END),0) AS lab4,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8920,8918) THEN 1 ELSE 0 END),0) AS lab5,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8905,8929) THEN 1 ELSE 0 END),0) AS lab6,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8921,8916) THEN 1 ELSE 0 END),0) AS lab7,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8911,8919) THEN 1 ELSE 0 END),0) AS lab8,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8907,8931) THEN 1 ELSE 0 END),0) AS lab9,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8930,8906) THEN 1 ELSE 0 END),0) AS lab10,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8932,8910) THEN 1 ELSE 0 END),0) AS lab11,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8937) THEN 1 ELSE 0 END),0) AS lab12,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8913,8926) THEN 1 ELSE 0 END),0) AS lab13,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8933,8912) THEN 1 ELSE 0 END),0) AS lab14,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8928) THEN 1 ELSE 0 END),0) AS lab15
+FROM labform LF
+JOIN lab_check_request_item LCRI  ON LF.labformid = LCRI.labformid
+JOIN lab_check_request LCR ON LCR.labcheckrequestid = LCRI.labcheckrequestid
+WHERE SUBSTRING(LCR.labgetdatetime,1,7)  = '$year-08'
+AND LCRI.labcheckrequestitem_a = 1
+UNION
+SELECT 'กันยายน $year' AS MO , 
+IFNULL(SUM(CASE WHEN LF.labformid IN (8901,8927,8938) THEN 1 ELSE 0 END),0) AS lab1,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8902,8934)  THEN 1 ELSE 0 END),0) AS lab2,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8903,8935) THEN 1 ELSE 0 END),0) AS lab3,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8936,8909) THEN 1 ELSE 0 END),0) AS lab4,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8920,8918) THEN 1 ELSE 0 END),0) AS lab5,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8905,8929) THEN 1 ELSE 0 END),0) AS lab6,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8921,8916) THEN 1 ELSE 0 END),0) AS lab7,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8911,8919) THEN 1 ELSE 0 END),0) AS lab8,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8907,8931) THEN 1 ELSE 0 END),0) AS lab9,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8930,8906) THEN 1 ELSE 0 END),0) AS lab10,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8932,8910) THEN 1 ELSE 0 END),0) AS lab11,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8937) THEN 1 ELSE 0 END),0) AS lab12,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8913,8926) THEN 1 ELSE 0 END),0) AS lab13,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8933,8912) THEN 1 ELSE 0 END),0) AS lab14,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8928) THEN 1 ELSE 0 END),0) AS lab15
+FROM labform LF
+JOIN lab_check_request_item LCRI  ON LF.labformid = LCRI.labformid
+JOIN lab_check_request LCR ON LCR.labcheckrequestid = LCRI.labcheckrequestid
+WHERE SUBSTRING(LCR.labgetdatetime,1,7)  = '$year-09'
+AND LCRI.labcheckrequestitem_a = 1
+UNION
+SELECT 'ตุลาคม $year' AS MO , 
+IFNULL(SUM(CASE WHEN LF.labformid IN (8901,8927,8938) THEN 1 ELSE 0 END),0) AS lab1,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8902,8934)  THEN 1 ELSE 0 END),0) AS lab2,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8903,8935) THEN 1 ELSE 0 END),0) AS lab3,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8936,8909) THEN 1 ELSE 0 END),0) AS lab4,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8920,8918) THEN 1 ELSE 0 END),0) AS lab5,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8905,8929) THEN 1 ELSE 0 END),0) AS lab6,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8921,8916) THEN 1 ELSE 0 END),0) AS lab7,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8911,8919) THEN 1 ELSE 0 END),0) AS lab8,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8907,8931) THEN 1 ELSE 0 END),0) AS lab9,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8930,8906) THEN 1 ELSE 0 END),0) AS lab10,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8932,8910) THEN 1 ELSE 0 END),0) AS lab11,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8937) THEN 1 ELSE 0 END),0) AS lab12,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8913,8926) THEN 1 ELSE 0 END),0) AS lab13,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8933,8912) THEN 1 ELSE 0 END),0) AS lab14,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8928) THEN 1 ELSE 0 END),0) AS lab15
+FROM labform LF
+JOIN lab_check_request_item LCRI  ON LF.labformid = LCRI.labformid
+JOIN lab_check_request LCR ON LCR.labcheckrequestid = LCRI.labcheckrequestid
+WHERE SUBSTRING(LCR.labgetdatetime,1,7)  = '$year-10'
+AND LCRI.labcheckrequestitem_a = 1
+UNION
+SELECT 'พฤศจิกายน $year' AS MO , 
+IFNULL(SUM(CASE WHEN LF.labformid IN (8901,8927,8938) THEN 1 ELSE 0 END),0) AS lab1,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8902,8934)  THEN 1 ELSE 0 END),0) AS lab2,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8903,8935) THEN 1 ELSE 0 END),0) AS lab3,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8936,8909) THEN 1 ELSE 0 END),0) AS lab4,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8920,8918) THEN 1 ELSE 0 END),0) AS lab5,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8905,8929) THEN 1 ELSE 0 END),0) AS lab6,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8921,8916) THEN 1 ELSE 0 END),0) AS lab7,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8911,8919) THEN 1 ELSE 0 END),0) AS lab8,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8907,8931) THEN 1 ELSE 0 END),0) AS lab9,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8930,8906) THEN 1 ELSE 0 END),0) AS lab10,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8932,8910) THEN 1 ELSE 0 END),0) AS lab11,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8937) THEN 1 ELSE 0 END),0) AS lab12,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8913,8926) THEN 1 ELSE 0 END),0) AS lab13,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8933,8912) THEN 1 ELSE 0 END),0) AS lab14,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8928) THEN 1 ELSE 0 END),0) AS lab15
+FROM labform LF
+JOIN lab_check_request_item LCRI  ON LF.labformid = LCRI.labformid
+JOIN lab_check_request LCR ON LCR.labcheckrequestid = LCRI.labcheckrequestid
+WHERE SUBSTRING(LCR.labgetdatetime,1,7)  = '$year-11'
+AND LCRI.labcheckrequestitem_a = 1
+UNION
+SELECT 'ธันวาคม $year' AS MO , 
+IFNULL(SUM(CASE WHEN LF.labformid IN (8901,8927,8938) THEN 1 ELSE 0 END),0) AS lab1,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8902,8934)  THEN 1 ELSE 0 END),0) AS lab2,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8903,8935) THEN 1 ELSE 0 END),0) AS lab3,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8936,8909) THEN 1 ELSE 0 END),0) AS lab4,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8920,8918) THEN 1 ELSE 0 END),0) AS lab5,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8905,8929) THEN 1 ELSE 0 END),0) AS lab6,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8921,8916) THEN 1 ELSE 0 END),0) AS lab7,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8911,8919) THEN 1 ELSE 0 END),0) AS lab8,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8907,8931) THEN 1 ELSE 0 END),0) AS lab9,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8930,8906) THEN 1 ELSE 0 END),0) AS lab10,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8932,8910) THEN 1 ELSE 0 END),0) AS lab11,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8937) THEN 1 ELSE 0 END),0) AS lab12,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8913,8926) THEN 1 ELSE 0 END),0) AS lab13,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8933,8912) THEN 1 ELSE 0 END),0) AS lab14,
+IFNULL(SUM(CASE WHEN LF.labformid IN (8928) THEN 1 ELSE 0 END),0) AS lab15
+FROM labform LF
+JOIN lab_check_request_item LCRI  ON LF.labformid = LCRI.labformid
+JOIN lab_check_request LCR ON LCR.labcheckrequestid = LCRI.labcheckrequestid
+WHERE SUBSTRING(LCR.labgetdatetime,1,7)  = '$year-12'
+AND LCRI.labcheckrequestitem_a = 1 ";
+
+
+$query = mysqli_query($conn, $sql);
+
+$resultArray = array();
+while ($result = mysqli_fetch_array($query)) {
+    array_push($resultArray, $result);
+}
+
+echo json_encode(
+    array(
+        'status' => true,
+        'data' => $resultArray,
+        'sql' => $sql
+    )
+
+);
+
+    // echo $data;
+    mysqli_close($conn);
