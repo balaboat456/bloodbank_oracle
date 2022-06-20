@@ -9,6 +9,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
+            
             <div id="modalbody" class="modal-body">
 
                 <div class="table-stock-scroll" style="height:520px">
