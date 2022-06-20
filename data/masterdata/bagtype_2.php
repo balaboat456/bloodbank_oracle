@@ -6,7 +6,9 @@
     if(!empty($keyword))
     $condition = "AND CONCAT(ifnull(bagtypeid,''),' ',ifnull(bagtypecode,''),' ',ifnull(bagtypename,'')) LIKE '%$keyword%' ";
 
-    $sql = "SELECT * FROM bag_type where bagtypeid BETWEEN 4 AND 5 $condition ";
+    $sql = "SELECT * FROM bag_type where bagtypeid BETWEEN 4 AND 5 $condition "; 
+
+    
     
     $query = mysqli_query($conn,$sql);
 
